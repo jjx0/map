@@ -1,0 +1,77 @@
+// Import the Google Maps API
+const googleMaps = require('google-maps');
+
+// Create a new Google Maps instance
+const map = new googleMaps.Map(document.getElementById('map'));
+
+// Add a marker to the map for the primary location
+const primaryMarker = new googleMaps.Marker({
+  position: new googleMaps.LatLng(36.785056, -86.387500),
+  map: map
+});
+
+// Get a list of all the local attractions
+const attractions = [
+  {
+    name: 'Mammoth Cave National Park',
+    latitude: 36.776667,
+    longitude: -86.391667
+  },
+  {
+    name: 'The American Cave Museum',
+    latitude: 36.785056,
+    longitude: -86.387500
+  },
+  {
+    name: 'The Cave City Convention Center',
+    latitude: 36.783333,
+    longitude: -86.388333
+  },
+  {
+    name: 'The Kentucky Dinosaur Museum',
+    latitude: 36.783333,
+    longitude: -86.388333
+  },
+  {
+    name: 'The Silver Dollar City Amusement Park',
+    latitude: 36.783333,
+    longitude: -86.388333
+  },
+  {
+    name: 'The Barren River Lake State Resort Park',
+    latitude: 36.783333,
+    longitude: -86.388333
+  },
+  {
+    name: 'The Cave City Driving Range',
+    latitude: 36.783333,
+    longitude: -86.388333
+  },
+  {
+    name: 'The Cave City Golf Course',
+    latitude: 36.783333,
+    longitude: -86.388333
+  },
+  {
+    name: 'The Cave City Tennis Center',
+    latitude: 36.783333,
+    longitude: -86.388333
+  },
+  {
+    name: 'The Cave City Swimming Pool',
+    latitude: 36.783333,
+    longitude: -86.388333
+  }
+];
+
+// Loop through the list of attractions and add a marker for each one
+attractions.forEach((attraction) => {
+  const marker = new googleMaps.Marker({
+    position: new googleMaps.LatLng(attraction.latitude, attraction.longitude),
+    map: map,
+    title: attraction.name
+  });
+});
+
+// Set the map's zoom level to 12
+map.setZoom(12);
